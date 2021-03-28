@@ -1,0 +1,62 @@
+.main-card {
+  background: white;
+  padding: 8px;
+  z-index: 2;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+h3 {
+  color: black;
+  font-weight: 500;
+  line-height: 18px;
+  text-transform: uppercase;
+}
+h5 {
+  width: auto;
+  color: gray;
+  line-height: 15px;
+}
+
+h3,
+h5 {
+  margin: 0;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  button {
+    font-size: 12px;
+  }
+}
+
+.poster {
+  width: 65px;
+  height: 90px;
+  background: black;
+  border-radius: 5px;
+  background-size: cover;
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+}
+#screening-price {
+  float: right;
+  color: gray;
+  text-transform: lowercase;
+  display: flex;
+  align-items: center;
+}
+#price-icon {
+  margin-left: 5px;
+  color: rgb(223, 201, 7);
+}

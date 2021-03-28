@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+<main class="wrapper-small">
+  <h1>SPRÁVA KINA</h1>
+  <div class="section-buttons">
+    <a
+      mat-stroked-button
+      color="primary"
+      routerLink="./movies"
+      routerLinkActive="active"
+      >Spravovať filmy</a
+    >
+    <a
+      mat-stroked-button
+      color="primary"
+      routerLink="./screenings"
+      routerLinkActive="active"
+      >Spravovať premietania</a
+    >
+  </div>
+  <router-outlet></router-outlet>
+</main>

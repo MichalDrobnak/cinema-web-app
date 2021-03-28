@@ -1,0 +1,87 @@
+.aside-container {
+  display: flex;
+}
+aside {
+  flex: 1;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+.add-button {
+  width: fit-content;
+}
+mat-divider {
+  margin: 0 30px;
+}
+.outline-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 15px 10px;
+}
+.gray-text {
+  color: rgb(165, 165, 165);
+}
+.price {
+  mat-icon {
+    color: gold;
+    font-size: 18px;
+    margin-left: 5px;
+    width: 18px;
+    height: 18px;
+  }
+
+  display: flex;
+  align-items: center;
+}
+
+h2 {
+  margin-bottom: 0;
+}
+main {
+  padding-top: 50px;
+}
+
+/* SPECTATOR */
+.spectator {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 0;
+
+  button {
+    font-size: 12px;
+  }
+
+  h3,
+  h4 {
+    margin: 0;
+    line-height: 22px;
+    color: rgb(187, 186, 186);
+  }
+
+  h3 {
+    font-weight: 500;
+  }
+}
+.seat-box {
+  $box-size: 40px;
+
+  width: $box-size;
+  height: $box-size;
+  background: rgb(54, 136, 230);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    font-size: 18px;
+    font-weight: 500;
+  }
+}

@@ -1,0 +1,28 @@
+<div id="wrapper">
+  <div id="reader" data-status="" #reader>
+    <div class="top">
+      <div class="screen">
+        <div id="message"></div>
+      </div>
+      <div class="lights">
+        <div class="light red"></div>
+        <div class="light green"></div>
+      </div>
+    </div>
+    <div
+      id="card"
+      #card
+      (mousedown)="dragStart($event)"
+      (touchstart)="dragStart($event)"
+    >
+      <div id="photo"></div>
+    </div>
+    <div class="bottom"></div>
+  </div>
+  <em
+    >Credit to author: Thomas Park<br /><a
+      href="https://css-tricks.com/recreating-game-elements-for-the-web-the-among-us-card-swipe/"
+      >original blog post</a
+    ></em
+  >
+</div>

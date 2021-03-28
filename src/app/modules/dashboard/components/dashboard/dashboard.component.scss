@@ -1,0 +1,12 @@
+.screenings-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+#no-screenings-text {
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 150px;
+  color: rgb(235, 235, 235);
+}

@@ -1,0 +1,50 @@
+<div class="dropzone" appFileUploadDnd (fileDropped)="handleFileInput($event)">
+  <input
+    #fileInput
+    (change)="fileButton.focus(); handleFileInputChange($event)"
+    [multiple]="false"
+    onclick="this.value = null"
+    hidden="true"
+    type="file"
+  />
+
+  <!-- ICON & HEADER -->
+  <ng-container *ngIf="!selectedFile">
+    <h3>Vhoďte plagát potiahnutím</h3>
+    <h4>alebo</h4>
+  </ng-container>
+
+  <!-- LIST OF SELECTED FILES -->
+  <section *ngIf="selectedFile" class="file-list">
+    <span class="file-name"
+      >{{ selectedFile.name | shortString: 18 }}
+      <span class="file-size">{{ selectedFile.size | fileSize }}</span>
+    </span>
+  </section>
+
+  <!-- UPLOAD & CANCEL BUTTON -->
+  <section>
+    <button
+      #fileButton
+      mat-stroked-button
+      color="primary"
+      (click)="fileInput.click()"
+      [title]="fileInput.value"
+      type="button"
+      id="poster-upload-btn"
+    >
+      Prehľadávajte
+    </button>
+
+    <button
+      *ngIf="selectedFile"
+      (click)="discardFiles()"
+      mat-flat-button
+      type="button"
+      color="primary"
+      class="cancel-button"
+    >
+      <mat-icon>clear</mat-icon>
+    </button>
+  </section>
+</div>

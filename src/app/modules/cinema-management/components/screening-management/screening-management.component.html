@@ -1,0 +1,63 @@
+<main>
+  <form [formGroup]="filterGroup">
+    <mat-form-field appearance="outline">
+      <mat-label>Film</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="movie"
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let movie of movieAutocomplete.filteredOptions$ | async"
+          [value]="movie.name"
+        >
+          {{ movie.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Cena</mat-label>
+      <input matInput type="number" formControlName="price" />
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="primary"
+      id="filter-button"
+      (click)="applyFilter()"
+    >
+      Aplikovať filter
+    </button>
+  </form>
+  <mat-divider vertical="true"></mat-divider>
+  <aside>
+    <a
+      mat-raised-button
+      color="primary"
+      id="filter-button"
+      class="icon-text-btn"
+      href="/add-screening"
+    >
+      <mat-icon>add</mat-icon>
+      Pridať premietanie
+    </a>
+    <ng-container *ngIf="screenings$ | async as screenings">
+      <div class="screenings-wrapper">
+        <app-screening-card
+          *ngFor="let screening of screenings.data; trackBy: identifyScreening"
+          [data]="screening"
+        ></app-screening-card>
+      </div>
+      <mat-paginator
+        *ngIf="screenings.size"
+        [length]="screenings.size"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="pageSizeOptions"
+        [pageIndex]="pageIndex"
+        (page)="paginate($event)"
+      >
+      </mat-paginator>
+    </ng-container>
+  </aside>
+</main>

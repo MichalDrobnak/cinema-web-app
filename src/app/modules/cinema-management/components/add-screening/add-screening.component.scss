@@ -1,0 +1,13 @@
+main {
+  padding-top: 50px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}

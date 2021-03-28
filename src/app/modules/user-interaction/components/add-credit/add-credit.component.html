@@ -1,0 +1,15 @@
+<app-navbar></app-navbar>
+
+<main class="wrapper-tiny">
+  <h1>Dobiť kredit</h1>
+
+  <!-- CREDIT FORM -->
+  <form matForm [formGroup]="creditFormGroup">
+    <mat-form-field appearance="outline">
+      <mat-label>Množstvo kreditu</mat-label>
+      <input matInput type="number" formControlName="credit" />
+    </mat-form-field>
+  </form>
+
+  <app-card-reader (accepted)="addCredit()"></app-card-reader>
+</main>

@@ -1,0 +1,28 @@
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+aside {
+  display: flex;
+  align-items: center;
+}
+aside > button,
+aside > a {
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.user-data {
+  font-size: 13px;
+  text-align: center;
+  line-height: 16px;
+  font-weight: 400;
+  padding: 0 16px;
+}
+.user-data b {
+  font-weight: 600;
+}

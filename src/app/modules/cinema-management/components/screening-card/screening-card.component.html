@@ -1,0 +1,24 @@
+<mat-card class="main-card">
+  <div class="content-wrapper">
+    <div class="poster" [style.background-image]="posterUrl"></div>
+    <aside>
+      <h3>
+        {{ data.movie.name
+        }}<span id="screening-price"
+          >{{ data.price }}<mat-icon id="price-icon">toll</mat-icon></span
+        >
+      </h3>
+      <h5>{{ data.datetime.toDate() | date: 'dd. MM. yyyy - HH:mm' }}</h5>
+      <div class="controls">
+        <button
+          mat-flat-button
+          color="primary"
+          class="icon-button"
+          (click)="handleDelete()"
+        >
+          <mat-icon>delete_forever</mat-icon>
+        </button>
+      </div>
+    </aside>
+  </div>
+</mat-card>

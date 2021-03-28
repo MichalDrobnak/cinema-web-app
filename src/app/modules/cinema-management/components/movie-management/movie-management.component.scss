@@ -1,0 +1,30 @@
+main {
+  display: flex;
+}
+form,
+aside {
+  flex: 1;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+mat-divider {
+  margin: 0 30px;
+}
+mat-paginator {
+  margin-top: 15px;
+  background: none;
+}
+
+#filter-button {
+  width: fit-content;
+  align-self: flex-end;
+}
+
+.movies-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 25px;
+}

@@ -1,0 +1,42 @@
+<form class="sign-in" [formGroup]="signInFormGroup" (ngSubmit)="handleSignIn()">
+  <mat-error *ngIf="this.signInError" id="sign-in-error">{{
+    this.signInError
+  }}</mat-error>
+  <h1>Prihlásiť sa</h1>
+  <mat-form-field appearance="outline">
+    <mat-label>E-mail</mat-label>
+    <input matInput type="email" formControlName="email" />
+    <mat-error *ngIf="getEmailError() as error">{{ error }}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Heslo</mat-label>
+    <input
+      matInput
+      [type]="isPasswordVisible ? 'text' : 'password'"
+      formControlName="password"
+    />
+    <button
+      type="button"
+      mat-icon-button
+      matSuffix
+      (click)="isPasswordVisible = !isPasswordVisible"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="isPasswordVisible"
+    >
+      <mat-icon>{{
+        isPasswordVisible ? "visibility" : "visibility_off"
+      }}</mat-icon>
+    </button>
+    <mat-error *ngIf="getPasswordError() as error">{{ error }}</mat-error>
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="!signInFormGroup.valid"
+  >
+    PRIHLÁSIŤ SA
+  </button>
+</form>

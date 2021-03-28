@@ -1,0 +1,67 @@
+$seat-size: 55px;
+
+main {
+  width: 850px;
+  padding: 30px 70px;
+
+  h1 {
+    padding-bottom: 10px;
+  }
+}
+
+.seats-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.seat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $seat-size;
+  height: $seat-size;
+  background: rgb(219, 219, 219);
+  transition: 0.5s ease;
+
+  span {
+    color: rgb(100, 100, 100);
+    font-size: 18px;
+    user-select: none;
+  }
+}
+.seat.selected {
+  background: rgb(50, 100, 220);
+  transition: 0.5s ease;
+
+  span {
+    color: white;
+  }
+}
+.seat.occupied {
+  background: rgb(194, 35, 35);
+
+  span {
+    color: white;
+  }
+}
+.seat.my {
+  background: rgb(20, 180, 20);
+
+  span {
+    color: white;
+  }
+}
+
+.seat:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.buttons {
+  margin-top: 80px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}

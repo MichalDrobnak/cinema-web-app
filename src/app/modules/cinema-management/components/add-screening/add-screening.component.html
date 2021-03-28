@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+<main class="wrapper-tiny">
+  <h1>Pridávanie premietania</h1>
+
+  <form
+    [formGroup]="addScreeningFormGroup"
+    (keydown.enter)="handleFormSubmit($event)"
+  >
+    <mat-form-field appearance="outline">
+      <mat-label>Film</mat-label>
+      <input matInput formControlName="movie" [matAutocomplete]="auto" />
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let movie of movieAutocomplete.filteredOptions$ | async"
+          [value]="movie.name"
+        >
+          {{ movie.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="date" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Čas</mat-label>
+      <input matInput formControlName="time" type="time" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Cena</mat-label>
+      <input matInput formControlName="price" />
+    </mat-form-field>
+
+    <div class="buttons">
+      <button
+        mat-raised-button
+        color="primary"
+        class="icon-text-btn"
+        [disabled]="!addScreeningFormGroup.valid"
+        (click)="uploadScreening()"
+      >
+        <mat-icon>add</mat-icon>
+        Pridať premietanie
+      </button>
+    </div>
+  </form>
+</main>

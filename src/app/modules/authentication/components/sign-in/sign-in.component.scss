@@ -1,0 +1,14 @@
+.sign-in {
+  width: 300px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  padding-top: 400px;
+}
+form > button {
+  width: fit-content;
+  align-self: flex-end;
+}
+#sign-in-error {
+  margin-bottom: 50px;
+}

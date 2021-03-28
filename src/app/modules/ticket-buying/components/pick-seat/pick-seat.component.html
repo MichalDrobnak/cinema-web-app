@@ -1,0 +1,32 @@
+<main>
+  <h1>Výber miesta na sedenie</h1>
+  <div class="seats-wrapper">
+    <div
+      *ngFor="let seat of seats"
+      class="seat"
+      matRipple
+      [class.selected]="selectedSeat === seat.number"
+      [class.occupied]="seat.state === 1"
+      [class.my]="seat.state === 2"
+      [matRippleColor]="rippleColor"
+      (click)="selectSeat(seat.number)"
+    >
+      <span>{{ seat.number }}</span>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button type="button" mat-raised-button (click)="closeDialog()">
+      Zrušiť
+    </button>
+    <button
+      type="button"
+      mat-raised-button
+      color="primary"
+      [disabled]="!selectedSeat"
+      (click)="finishSelection()"
+    >
+      Vybrať
+    </button>
+  </div>
+</main>
