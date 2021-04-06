@@ -1,5 +1,8 @@
 export interface User {
+  credit: number;
+  isAdmin: boolean;
+  notifications: string[];
+  tickets: string[];
   uid: string;
-  email: string;
   username: string;
 }

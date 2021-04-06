@@ -3,5 +3,11 @@
   margin: auto;
   display: flex;
   flex-direction: column;
-  padding: 50px 0;
+  padding: 100px 0;
+}
+form > button {
+  margin: 15px 0;
+}
+form > mat-form-field {
+  margin-top: 15px;
 }

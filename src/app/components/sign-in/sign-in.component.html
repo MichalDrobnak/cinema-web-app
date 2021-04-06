@@ -1,27 +1,14 @@
-<!-- <div *ngIf="auth.userData$ | async as user; else signIn">
-  <pre>
-    {{ user | json }}
-  </pre>
-  <hr />
-</div> -->
-<ng-container *ngTemplateOutlet="signIn"></ng-container>
+<form class="sign-in" [formGroup]="signInFormGroup" (ngSubmit)="handleSignIn()">
+  <mat-form-field appearance="fill">
+    <mat-label>E-mail</mat-label>
+    <input matInput type="email" formControlName="email" />
+  </mat-form-field>
 
-<ng-template #signIn>
-  <form
-    class="sign-in"
-    [formGroup]="signInFormGroup"
-    (ngSubmit)="handleSignUp($event)"
-  >
-    <mat-form-field appearance="fill">
-      <mat-label>E-mail</mat-label>
-      <input matInput type="email" formControlName="email" />
-    </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" formControlName="password" />
+    <mat-error *ngIf="this.loginError">{{ this.loginError }}</mat-error>
+  </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Password</mat-label>
-      <input matInput type="password" formControlName="password" />
-    </mat-form-field>
-
-    <button mat-raised-button color="primary" type="submit">Sign Up</button>
-  </form>
-</ng-template>
+  <button mat-raised-button color="primary" type="submit">Sign In</button>
+</form>
