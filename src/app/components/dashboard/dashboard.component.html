@@ -1,1 +1,16 @@
 <app-navbar></app-navbar>
+<main class="wrapper">
+  <div
+    *ngIf="screenings$ | async as screenings; else noScreenings"
+    class="screenings-wrapper"
+  >
+    <app-screening
+      *ngFor="let screening of screenings"
+      [data]="screening"
+    ></app-screening>
+  </div>
+</main>
+
+<ng-template #noScreenings>
+  <h1 id="no-screenings-text">No screenings planned</h1>
+</ng-template>

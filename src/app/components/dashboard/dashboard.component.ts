@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { first } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { Screening } from 'src/app/models/screening.model';
 import { AuthService } from 'src/app/services/auth.service';
+import { ScreeningService } from 'src/app/services/screening.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,11 +10,14 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  constructor(public auth: AuthService) {}
+  constructor(
+    public auth: AuthService,
+    private screeningService: ScreeningService
+  ) {}
 
-  ngOnInit(): void {}
+  screenings$: Observable<Screening[]>;
 
-  logUser(): void {
-    this.auth.userData$.pipe(first()).subscribe((val) => console.log(val));
+  ngOnInit(): void {
+    this.screenings$ = this.screeningService.fetchData();
   }
 }

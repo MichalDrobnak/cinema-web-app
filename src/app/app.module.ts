@@ -9,6 +9,7 @@ import { environment } from '../environments/environment';
 // FIREBASE
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 // MATERIAL
 import { MatInputModule } from '@angular/material/input';
@@ -16,6 +17,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 
 // COMPONENTS
 import { AppComponent } from './app.component';
@@ -24,6 +27,9 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ShortStringPipe } from './pipes/short-string.pipe';
+import { ScreeningComponent } from './components/screening/screening.component';
+import { ScreeningDetailComponent } from './components/screening-detail/screening-detail.component';
+import { PluralPipe } from './pipes/plural.pipe';
 
 @NgModule({
   declarations: [
@@ -33,6 +39,9 @@ import { ShortStringPipe } from './pipes/short-string.pipe';
     SignUpComponent,
     NavbarComponent,
     ShortStringPipe,
+    ScreeningComponent,
+    ScreeningDetailComponent,
+    PluralPipe,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +56,9 @@ import { ShortStringPipe } from './pipes/short-string.pipe';
     ReactiveFormsModule,
     MatToolbarModule,
     MatIconModule,
+    AngularFireStorageModule,
+    MatCardModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

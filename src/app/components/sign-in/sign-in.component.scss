@@ -3,11 +3,12 @@
   margin: auto;
   display: flex;
   flex-direction: column;
-  padding: 100px 0;
+  padding-top: 400px;
 }
 form > button {
-  margin: 15px 0;
+  width: fit-content;
+  align-self: flex-end;
 }
-form > mat-form-field {
-  margin-top: 15px;
+#sign-in-error {
+  margin-bottom: 50px;
 }

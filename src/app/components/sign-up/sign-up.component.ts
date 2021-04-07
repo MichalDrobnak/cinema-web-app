@@ -54,7 +54,8 @@ export class SignUpComponent implements OnInit {
     if (err.code === 'auth/email-already-in-use') {
       this.signUpError = 'E-mail je už priradený k inému účtu.';
     } else if (err) {
-      this.signUpError = 'Nastala chyba pri registrácii.';
+      this.signUpError =
+        'Nastala chyba pri registrácii. Vyskúšajte sa zaregistrovať znovu.';
     }
   }
 

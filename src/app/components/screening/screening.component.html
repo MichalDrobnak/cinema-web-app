@@ -1,0 +1,23 @@
+<mat-card class="mat-elevation-z4">
+  <mat-card-header>
+    <mat-card-title>{{ data.movie.name }}</mat-card-title>
+    <mat-card-subtitle>{{
+      data.datetime.toDate() | date: "dd. MM. yyyy - HH:mm"
+    }}</mat-card-subtitle>
+    <h2 id="price">
+      {{ data.price }}<mat-icon id="price-icon">toll</mat-icon>
+    </h2>
+  </mat-card-header>
+  <div mat-card-image class="poster" [style.background-image]="posterUrl">
+    <h3 *ngIf="!posterUrl" id="no-image">IMAGE UNAVAILABLE</h3>
+  </div>
+  <mat-card-content>
+    <mat-card-subtitle>{{ data.movie.genre.join(" / ") }}</mat-card-subtitle>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button color="primary" (click)="openDetail()">DETAIL</button>
+    <a *ngIf="auth.userData$ | async" mat-button color="primary">
+      KÚPIŤ LÍSTKY
+    </a>
+  </mat-card-actions>
+</mat-card>

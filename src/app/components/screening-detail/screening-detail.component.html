@@ -1,0 +1,27 @@
+<div class="movie-detail">
+  <aside>
+    <h1>{{ data.movie.name }}</h1>
+    <h2>{{ data.datetime.toDate() | date: "dd. MM. yyyy - HH:mm" }}</h2>
+
+    <h3>Žáner</h3>
+    <p>{{ data.movie.genre.join(" / ") }}</p>
+
+    <h3>Dĺžka filmu</h3>
+    <p>{{ data.movie.length + " min." }}</p>
+
+    <h3>Minimálny vek diváka</h3>
+    <p>
+      {{ data.movie.minimalAge | plural: "rok" }}
+    </p>
+
+    <h3>Popis</h3>
+    <p>{{ data.movie.description }}</p>
+
+    <h3>Cena</h3>
+    <p>{{ data.price | plural: "kredit" }}</p>
+  </aside>
+  <aside>
+    <img [src]="posterUrl" [alt]="data.movie.name" width="270px" id="poster" />
+  </aside>
+</div>
+<a mat-button color="primary" id="buy-tickets">KÚPIŤ LÍSTKY</a>
