@@ -1,0 +1,34 @@
+<main>
+  <form [formGroup]="filterGroup">
+    <mat-form-field appearance="outline">
+      <mat-label>Názov</mat-label>
+      <input matInput type="text" formControlName="name" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Žáner</mat-label>
+      <input matInput type="text" formControlName="genre" />
+    </mat-form-field>
+    <button mat-raised-button color="primary" id="filter-button">
+      Aplikovať filter
+    </button>
+  </form>
+  <mat-divider vertical="true"></mat-divider>
+  <aside>
+    <a
+      mat-raised-button
+      color="primary"
+      id="filter-button"
+      class="icon-text-btn"
+      href="/add-movie"
+    >
+      <mat-icon>add</mat-icon>
+      Pridať film
+    </a>
+    <div *ngIf="movies$ | async as movies" class="movies-wrapper">
+      <app-movie-card
+        *ngFor="let movie of movies"
+        [data]="movie"
+      ></app-movie-card>
+    </div>
+  </aside>
+</main>

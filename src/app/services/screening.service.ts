@@ -10,7 +10,7 @@ import { RawScreening, Screening } from '../models/screening.model';
 export class ScreeningService {
   constructor(private afs: AngularFirestore) {}
 
-  fetchData(): Observable<any> {
+  fetchData(): Observable<Screening[]> {
     const query$ = this.afs
       .collection('screenings')
       .valueChanges() as Observable<RawScreening[]>;

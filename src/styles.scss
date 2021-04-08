@@ -9,8 +9,52 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+h1,
+button,
+a {
+  text-transform: uppercase;
+}
+
 .wrapper {
   margin: auto;
-  width: 60%;
+  width: 70%;
   max-width: 2000px;
+}
+.wrapper-small {
+  margin: auto;
+  width: 80%;
+  max-width: 1500px;
+}
+.wrapper-tiny {
+  margin: auto;
+  width: 80%;
+  max-width: 500px;
+}
+
+$icon-text-font: 1rem;
+button.icon-text-btn,
+a.icon-text-btn {
+  .mat-button-wrapper {
+    mat-icon {
+      width: $icon-text-font;
+      height: $icon-text-font;
+      font-size: $icon-text-font;
+    }
+  }
+}
+
+$icon-font-size: 23px;
+button.icon-button,
+a.icon-button {
+  width: 36px;
+  padding: 0;
+  min-width: unset !important;
+
+  .mat-button-wrapper {
+    mat-icon {
+      font-size: $icon-font-size;
+      width: $icon-font-size;
+      height: $icon-font-size;
+    }
+  }
 }

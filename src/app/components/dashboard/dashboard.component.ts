@@ -10,12 +10,12 @@ import { ScreeningService } from 'src/app/services/screening.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
+  screenings$: Observable<Screening[]>;
+
   constructor(
     public auth: AuthService,
     private screeningService: ScreeningService
   ) {}
-
-  screenings$: Observable<Screening[]>;
 
   ngOnInit(): void {
     this.screenings$ = this.screeningService.fetchData();
