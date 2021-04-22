@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+<main class="wrapper-small" *ngIf="screening$ | async as screening">
+  <h1>Nákup lístkov</h1>
+
+  <div class="aside-container">
+    <aside>
+      <form
+        [formGroup]="spectatorGroup"
+        (keydown.enter)="handleFormSubmit($event)"
+      >
+        <mat-form-field appearance="outline">
+          <mat-label>Meno</mat-label>
+          <input matInput formControlName="name" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Priezvisko</mat-label>
+          <input matInput formControlName="surname" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Vek</mat-label>
+          <input matInput formControlName="age" type="number" />
+        </mat-form-field>
+
+        <div class="outline-box">
+          <span
+            >Miesto na sedenie:<br /><span class="gray-text"
+              >nezvolené</span
+            ></span
+          >
+          <button
+            mat-raised-button
+            color="primary"
+            type="button"
+            (click)="pickSeat()"
+          >
+            Zvoliť
+          </button>
+        </div>
+
+        <button
+          mat-raised-button
+          color="primary"
+          class="icon-text-btn add-button"
+        >
+          <mat-icon>add</mat-icon>Pridať diváka
+        </button>
+      </form>
+    </aside>
+
+    <mat-divider vertical="true"></mat-divider>
+
+    <aside>
+      <div class="outline-box">
+        <span
+          >Celkom:<br /><span class="price gray-text"
+            >{{ screening.price }}<mat-icon>toll</mat-icon></span
+          ></span
+        >
+        <button mat-raised-button color="primary" type="button">Kúpiť</button>
+      </div>
+
+      <h2>Premietanie:</h2>
+      <h3 class="gray-text">
+        {{
+          screening.movie.name +
+            ' - ' +
+            (screening.datetime.toDate() | date: 'dd. MM. yyyy - HH:mm')
+        }}
+      </h3>
+
+      <h2>Diváci:</h2>
+    </aside>
+  </div>
+</main>

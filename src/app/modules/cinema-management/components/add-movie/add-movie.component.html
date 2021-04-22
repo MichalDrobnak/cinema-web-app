@@ -1,0 +1,85 @@
+<app-navbar></app-navbar>
+<main class="wrapper-tiny">
+  <h1>{{ editedMovie ? 'Upravovanie filmu' : 'Pridávanie filmu' }}</h1>
+
+  <form
+    [formGroup]="addMovieFormGroup"
+    (keydown.enter)="handleFormSubmit($event)"
+  >
+    <mat-form-field appearance="outline">
+      <mat-label>Názov</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Dĺžka filmu</mat-label>
+      <input matInput formControlName="length" type="number" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Žánre</mat-label>
+      <mat-chip-list #chipList>
+        <mat-chip
+          *ngFor="let genre of genres"
+          [selectable]="selectable"
+          [removable]="removable"
+          (removed)="remove(genre)"
+        >
+          {{ genre.name }}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input
+          placeholder="Žáner..."
+          formControlName="genre"
+          [matChipInputFor]="chipList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          [matChipInputAddOnBlur]="addOnBlur"
+          (matChipInputTokenEnd)="add($event)"
+        />
+      </mat-chip-list>
+      <mat-hint
+        >Žáner sa pridá stlačením tlačidla ENTER alebo pridaním
+        čiarky.</mat-hint
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Minimálny vek diváka</mat-label>
+      <input matInput formControlName="minimalAge" type="number" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Popis</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+
+    <app-file-uploader
+      (fileChange)="handleFileChange($event)"
+    ></app-file-uploader>
+
+    <div class="buttons">
+      <button
+        *ngIf="!this.editedMovie; else editButton"
+        mat-raised-button
+        color="primary"
+        class="icon-text-btn"
+        [disabled]="!addMovieFormGroup.valid"
+        (click)="uploadMovie()"
+      >
+        <mat-icon>add</mat-icon>
+        Pridať film
+      </button>
+    </div>
+  </form>
+</main>
+
+<ng-template #editButton>
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="!addMovieFormGroup.valid"
+    (click)="editMovie()"
+  >
+    Upraviť film
+  </button>
+</ng-template>

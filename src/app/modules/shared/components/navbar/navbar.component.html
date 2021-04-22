@@ -1,0 +1,36 @@
+<p>
+  <mat-toolbar color="primary">
+    <div class="wrapper toolbar">
+      <aside>
+        <a routerLink="/dashboard">CINEMA</a>
+      </aside>
+
+      <aside *ngIf="auth.userData$ | async as user; else unsigned">
+        <a *ngIf="user.isAdmin" mat-button routerLink="/cinema-management"
+          >Spravovať Kino</a
+        >
+        <a mat-button routerLink="/my-tickets">Moje Lístky</a>
+        <a mat-button routerLink="/add-credit">Dobiť Kredit</a>
+        <button mat-button (click)="auth.signOut()">Odhlásiť sa</button>
+        <a mat-icon-button routerLink="/notifications">
+          <mat-icon>notifications</mat-icon>
+        </a>
+        <span class="user-data"
+          >KREDIT:<br /><b>{{ user.credit | shortString: 10 }}</b></span
+        >
+        <span class="user-data"
+          >PRIHLÁSENÝ AKO:<br /><b>{{
+            user.username | shortString: 10
+          }}</b></span
+        >
+      </aside>
+    </div>
+  </mat-toolbar>
+</p>
+
+<ng-template #unsigned>
+  <aside>
+    <a mat-button routerLink="/sign-in">Prihlásiť sa</a>
+    <a mat-button routerLink="/sign-up">Zaregistrovať sa</a>
+  </aside>
+</ng-template>
