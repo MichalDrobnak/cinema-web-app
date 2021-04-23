@@ -6,7 +6,8 @@
       class="seat"
       matRipple
       [class.selected]="selectedSeat === seat.number"
-      [class.occupied]="seat.isOccupied"
+      [class.occupied]="seat.state === 1"
+      [class.my]="seat.state === 2"
       [matRippleColor]="rippleColor"
       (click)="selectSeat(seat.number)"
     >

@@ -11,23 +11,28 @@
         <mat-form-field appearance="outline">
           <mat-label>Meno</mat-label>
           <input matInput formControlName="name" />
+          <mat-error *ngIf="getNameError() as nameErr">{{ nameErr }}</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Priezvisko</mat-label>
           <input matInput formControlName="surname" />
+          <mat-error *ngIf="getSurnameError() as surnameErr">{{
+            surnameErr
+          }}</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Vek</mat-label>
           <input matInput formControlName="age" type="number" />
+          <mat-error *ngIf="getAgeError() as ageErr"> {{ ageErr }}</mat-error>
         </mat-form-field>
 
         <div class="outline-box">
           <span
-            >Miesto na sedenie:<br /><span class="gray-text"
-              >nezvolené</span
-            ></span
+            >Miesto na sedenie:<br /><span class="gray-text">{{
+              getSeatValue() ? getSeatValue() : 'nezvolené'
+            }}</span></span
           >
           <button
             mat-raised-button
@@ -43,6 +48,8 @@
           mat-raised-button
           color="primary"
           class="icon-text-btn add-button"
+          [disabled]="!spectatorGroup.valid"
+          (click)="addSpectator()"
         >
           <mat-icon>add</mat-icon>Pridať diváka
         </button>
@@ -55,10 +62,18 @@
       <div class="outline-box">
         <span
           >Celkom:<br /><span class="price gray-text"
-            >{{ screening.price }}<mat-icon>toll</mat-icon></span
+            >{{ calculatePrice() }}<mat-icon>toll</mat-icon></span
           ></span
         >
-        <button mat-raised-button color="primary" type="button">Kúpiť</button>
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          [disabled]="!canBuy()"
+          (click)="buyTickets()"
+        >
+          Kúpiť
+        </button>
       </div>
 
       <h2>Premietanie:</h2>
@@ -71,6 +86,25 @@
       </h3>
 
       <h2>Diváci:</h2>
+
+      <div class="spectator" *ngFor="let spectator of spectators">
+        <div class="seat-box">
+          <span>{{ spectator.seat }}</span>
+        </div>
+
+        <h3>
+          {{ spectator.name + ' ' + spectator.surname | shortString: 20 }}<br />
+          <h4>{{ spectator.age | plural: 'rok' | shortString: 20 }}</h4>
+        </h3>
+
+        <button
+          mat-icon-button
+          color="primary"
+          (click)="removeSpectator(spectator)"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
     </aside>
   </div>
 </main>

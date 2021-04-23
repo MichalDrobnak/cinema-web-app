@@ -46,6 +46,14 @@ main {
     color: white;
   }
 }
+.seat.my {
+  background: rgb(20, 180, 20);
+
+  span {
+    color: white;
+  }
+}
+
 .seat:hover {
   cursor: pointer;
   opacity: 0.9;
