@@ -20,6 +20,7 @@ import { CinemaManagementModule } from './modules/cinema-management/cinema-manag
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { TicketBuyingModule } from './modules/ticket-buying/ticket-buying.module';
+import { UserInteractionModule } from './modules/user-interaction/user-interaction.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -36,6 +37,7 @@ import { TicketBuyingModule } from './modules/ticket-buying/ticket-buying.module
     DashboardModule,
     BrowserAnimationsModule,
     TicketBuyingModule,
+    UserInteractionModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,115 @@
+.main-card {
+  background: white;
+  padding: 8px;
+  z-index: 2;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+h3 {
+  color: black;
+  font-weight: 500;
+  line-height: 18px;
+  text-transform: uppercase;
+}
+h5 {
+  width: auto;
+  color: gray;
+  line-height: 15px;
+}
+
+h3,
+h5 {
+  margin: 0;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  button {
+    font-size: 12px;
+  }
+}
+
+.poster {
+  width: 65px;
+  height: 90px;
+  background: black;
+  border-radius: 5px;
+  background-size: cover;
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+}
+#screening-price {
+  float: right;
+  color: gray;
+  text-transform: lowercase;
+  display: flex;
+  align-items: center;
+}
+#price-icon {
+  margin-left: 5px;
+  color: rgb(223, 201, 7);
+}
+
+// DESCRIPTION
+.description-card {
+  background: rgb(240, 240, 240);
+  color: rgb(155, 155, 155);
+  transform: translateY(-5px);
+}
+
+/* SPECTATOR */
+.spectator {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 0;
+
+  button {
+    font-size: 12px;
+  }
+
+  h3,
+  h4 {
+    margin: 0;
+    line-height: 22px;
+    color: rgb(87, 87, 87);
+  }
+
+  h3 {
+    font-weight: 500;
+  }
+}
+
+.seat-box {
+  $box-size: 40px;
+
+  width: $box-size;
+  height: $box-size;
+  background: rgb(54, 136, 230);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+  }
+}
+
+.mat-divider {
+  border-top-color: rgba(0, 0, 0, 0.2);
+}

@@ -79,6 +79,15 @@ export class ScreeningService {
     return query$.pipe(mergeMap((screening) => this.getScreening(screening)));
   }
 
+  fetchScreeningByRef(
+    docRef: firebase.firestore.DocumentReference
+  ): Observable<Screening> {
+    return from(docRef.get()).pipe(
+      map((snap) => snap.data() as RawScreening),
+      mergeMap((rawScreening) => this.getScreening(rawScreening))
+    );
+  }
+
   private getScreening(screening: RawScreening): Observable<Screening> {
     const movieRef = screening.movie;
 

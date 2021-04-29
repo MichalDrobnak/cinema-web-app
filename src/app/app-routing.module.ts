@@ -10,6 +10,8 @@ import { AdminGuard } from './modules/authentication/guards/admin.guard';
 import { AddMovieComponent } from './modules/cinema-management/components/add-movie/add-movie.component';
 import { AddScreeningComponent } from './modules/cinema-management/components/add-screening/add-screening.component';
 import { BuyTicketPageComponent } from './modules/ticket-buying/components/buy-ticket-page/buy-ticket-page.component';
+import { AddCreditComponent } from './modules/user-interaction/components/add-credit/add-credit.component';
+import { MyTicketsComponent } from './modules/user-interaction/components/my-tickets/my-tickets.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -37,6 +39,8 @@ const routes: Routes = [
     ],
   },
   { path: 'buy-tickets/:screeningId', component: BuyTicketPageComponent },
+  { path: 'add-credit', component: AddCreditComponent },
+  { path: 'my-tickets', component: MyTicketsComponent },
   { path: '*', redirectTo: '/dashboard', pathMatch: 'full' },
 ];
 

@@ -1,0 +1,11 @@
+<app-navbar></app-navbar>
+<main class="wrapper-tiny">
+  <h1>Moje lístky</h1>
+
+  <div class="tickets">
+    <app-ticket-card
+      *ngFor="let ticket of tickets$ | async"
+      [data]="ticket"
+    ></app-ticket-card>
+  </div>
+</main>

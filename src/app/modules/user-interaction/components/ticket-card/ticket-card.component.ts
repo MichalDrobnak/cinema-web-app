@@ -1,14 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Ticket } from 'src/app/modules/shared/models/ticket.model';
 import firebase from 'firebase';
-import { Screening } from 'src/app/modules/shared/models/screening.model';
 
 @Component({
-  selector: 'app-screening-card',
-  templateUrl: './screening-card.component.html',
-  styleUrls: ['./screening-card.component.scss'],
+  selector: 'app-ticket-card',
+  templateUrl: './ticket-card.component.html',
+  styleUrls: ['./ticket-card.component.scss'],
 })
-export class ScreeningCardComponent implements OnInit {
-  @Input('data') data: Screening;
+export class TicketCardComponent implements OnInit {
+  @Input() data: Ticket;
 
   posterUrl: string;
   private storageRef = firebase.storage().ref();
@@ -19,11 +19,9 @@ export class ScreeningCardComponent implements OnInit {
     this.getPosterUrl();
   }
 
-  handleDelete(): void {}
-
   private getPosterUrl(): void {
     this.storageRef
-      .child(this.data.movie.image)
+      .child(this.data.screening.movie.image)
       .getDownloadURL()
       .then((url) => {
         this.posterUrl = `url("${url}")`;

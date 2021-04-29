@@ -3,7 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Screening } from 'src/app/modules/shared/models/screening.model';
-import { Spectator } from '../buy-ticket-page/buy-ticket-page.component';
+import { Spectator } from 'src/app/modules/shared/models/spectator.model';
 
 @Component({
   selector: 'app-pick-seat',

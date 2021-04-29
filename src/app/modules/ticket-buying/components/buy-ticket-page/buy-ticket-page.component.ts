@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { AuthService } from 'src/app/modules/authentication/services/auth.service';
 import { Screening } from 'src/app/modules/shared/models/screening.model';
+import { Spectator } from 'src/app/modules/shared/models/spectator.model';
 import { ScreeningService } from 'src/app/modules/shared/services/screening.service';
 import { TicketService } from 'src/app/modules/shared/services/ticket.service';
 import { PickSeatComponent } from '../pick-seat/pick-seat.component';
@@ -31,8 +32,9 @@ export class BuyTicketPageComponent implements OnInit {
   screeningID: string;
 
   constructor(
-    private route: ActivatedRoute,
     public dialog: MatDialog,
+    private router: Router,
+    private route: ActivatedRoute,
     private screeningService: ScreeningService,
     private ticketService: TicketService,
     private authService: AuthService
@@ -145,18 +147,16 @@ export class BuyTicketPageComponent implements OnInit {
 
   buyTickets(): void {
     this.authService.userData$.pipe(first()).subscribe((user) => {
-      this.ticketService.createTicket(
-        this.spectators,
-        this.screeningID,
-        user.uid
-      );
+      this.ticketService
+        .buyTickets(
+          this.spectators,
+          this.screeningID,
+          user.uid,
+          this.ticketPrice
+        )
+        .subscribe(() => {
+          this.router.navigateByUrl('/dashboard');
+        });
     });
   }
-}
-
-export interface Spectator {
-  name: string;
-  surname: string;
-  age: number;
-  seat: number;
 }

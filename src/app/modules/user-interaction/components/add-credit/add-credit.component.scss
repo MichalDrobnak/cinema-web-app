@@ -1,0 +1,17 @@
+main {
+  margin-top: 50px;
+  h1 {
+    text-align: center;
+  }
+}
+
+form {
+  display: flex;
+  justify-content: center;
+}
+mat-form-field {
+  width: 300px;
+}
+app-card-reader {
+  margin-left: 50px;
+}

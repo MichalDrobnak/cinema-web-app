@@ -29,4 +29,8 @@ export class ScreeningDetailComponent {
         this.posterUrl = url;
       });
   }
+
+  closeDialog(): void {
+    this.dialogRef.close();
+  }
 }
